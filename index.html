@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieVault - AI Recommendations</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">MovieVault</div>
+        <nav class="nav">
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#trending">Trending</a>
+            <a href="#about">About</a>
+            <div class="language">
+                <span>🌐 EN</span>
+            </div>
+            <button id="authBtn" class="join-btn">Login/Signup</button>
+            <button id="logoutBtn" class="join-btn" style="display: none;">Logout</button>
+        </nav>
+    </header>
+<!-- Auth Modal -->
+<div id="authModal" class="modal">
+    <div class="modal-content">
+        <span id="closeModal" class="close">×</span>
+        <div class="tabs">
+            <button id="loginTab" class="tab active">Login</button>
+            <button id="signupTab" class="tab">Signup</button>
+        </div>
+        <!-- Login Form -->
+        <form id="loginForm" class="auth-form">
+            <div class="form-group">
+                <label for="loginEmail">Email</label>
+                <input type="email" id="loginEmail" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" name="password" required>
+            </div>
+            <button type="submit" class="submit-btn">Login</button>
+            <p id="loginMessage"></p>
+        </form>
+        <!-- Signup Form -->
+        <form id="signupForm" class="auth-form" style="display: none;">
+            <div class="form-group">
+                <label for="signupUsername">Username</label>
+                <input type="text" id="signupUsername" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="signupEmail">Email</label>
+                <input type="email" id="signupEmail" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="signupPassword">Password</label>
+                <input type="password" id="signupPassword" name="password" required>
+            </div>
+            <button type="submit" class="submit-btn">Create Account</button>
+            <p id="signupMessage"></p>
+        </form>
+    </div>
+</div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="slideshow-container" id="slideshowContainer">
+            <!-- Slides will be dynamically added by JavaScript -->
+        </div>
+        <div class="hero-content">
+            <h1>Your Personal <span>Cinema</span>, Reimagined</h1>
+            <p>Discover, track, and enjoy movies like never before. Access the ultimate film experience platform.</p>
+            <div class="search-bar">
+                <input type="text" id="movieInput" placeholder="Search for any movie or director..." aria-label="Search for a movie">
+                <button id="exploreBtn" class="explore-btn">Explore</button>
+            </div>
+            <div class="scroll-explore">
+                <p>Scroll to explore</p>
+                <span>↓</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Genre Section -->
+<section id="genres" class="genre-section">
+    <div class="container">
+        <h2>Browse by Genre</h2>
+        <p>Explore movies across different genres with our curated collections</p>
+        <div class="genre-grid">
+            <a href="genre.html?genre=Action" class="genre-card">Action</a>
+            <a href="genre.html?genre=Horror" class="genre-card">Horror</a>
+            <a href="genre.html?genre=Romance" class="genre-card">Romance</a>
+            <a href="genre.html?genre=Sci-Fi" class="genre-card">Sci-Fi</a>
+            <a href="genre.html?genre=Drama" class="genre-card">Drama</a>
+            <a href="genre.html?genre=Comedy" class="genre-card">Comedy</a>
+            <a href="genre.html?genre=Thriller" class="genre-card">Thriller</a>
+            <a href="genre.html?genre=Mystery" class="genre-card">Mystery</a>
+            <a href="genre.html?genre=Animation" class="genre-card">Animation</a>
+            <a href="genre.html?genre=Documentary" class="genre-card">Documentary</a>
+            <a href="genre.html?genre=Fantasy" class="genre-card">Fantasy</a>
+            <a href="genre.html?genre=Adventure" class="genre-card">Adventure</a>
+        </div>
+    </div>
+</section>
+
+    <!-- Trending Section -->
+<section id="trending" class="trending-section">
+    <div class="container">
+        <h2>Trending Now</h2>
+        <div class="trending-controls">
+            <a href="trending.html" class="view-all">View all →</a>
+        </div>
+        <div id="loading" class="loading">Loading trending movies...</div>
+        <div class="trending-carousel">
+            <button class="carousel-arrow left-arrow" id="leftArrow" aria-label="Previous slide">❮</button>
+            <div id="trending-list" class="trending-grid"></div>
+            <button class="carousel-arrow right-arrow" id="rightArrow" aria-label="Next slide">❯</button>
+        </div>
+        <div class="carousel-progress">
+            <div id="progressBar" class="progress-bar"></div>
+        </div>
+        <div class="see-more-container">
+            <button id="seeMoreBtn" class="see-more-btn">See More</button>
+        </div>
+    </div>
+</section>
+
+    <!-- Features Section -->
+<section id="features" class="features-section">
+    <div class="container">
+        <h2>The Ultimate Movie Experience</h2>
+        <p>Discover the features that will transform how you explore and enjoy cinema</p>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-circle"></div>
+                <h3>Smart Recommendations</h3>
+                <p>Our AI-powered system learns your preferences to suggest movies you’ll love, based on your viewing history and ratings.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-circle"></div>
+                <h3>Curated Collections</h3>
+                <p>Explore handpicked movie collections curated by film experts and passionate cinephiles across genres and themes.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-circle"></div>
+                <h3>Personalized Watchlist</h3>
+                <p>Create and manage your personal watchlist, with custom categories and priority levels for your movie pipeline.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-circle"></div>
+                <h3>Social Sharing</h3>
+                <p>Share your favorite films, reviews, and lists with friends, and discover what movies are trending in your social circle.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-circle"></div>
+                <h3>Multi-language Support</h3>
+                <p>Enjoy our platform in multiple languages with region-specific recommendations and content availability information.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-circle"></div>
+                <h3>Release Alerts</h3>
+                <p>Get notified when movies from your favorite directors, actors, or franchises are released or become available on streaming platforms.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Waitlist Section -->
+    <section id="waitlist" class="waitlist-section">
+        <div class="container">
+            <h2>Be Among the First to Experience <span>MovieVault</span></h2>
+            <p>Join our exclusive waitlist today and get early access to the platform that will revolutionize your movie-watching experience. Plus, get 3 months of premium features for free!</p>
+            <div class="waitlist-buttons">
+                <button class="join-btn">Join</button>
+            </div>
+            <div class="stats">
+                <div class="stat">
+                    <h3>10K+</h3>
+                    <p>Movies Indexed</p>
+                </div>
+                <div class="stat">
+                    <h3>5K+</h3>
+                    <p>Beta Users</p>
+                </div>
+                <div class="stat">
+                    <h3>99%</h3>
+                    <p>Satisfaction Rate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About MovieVault</h2>
+            <p>MovieVault is your ultimate destination for discovering, tracking, and enjoying movies. We’re passionate about cinema and dedicated to enhancing your movie-watching experience.</p>
+            <div class="about-content">
+                <div class="about-item">
+                    <h3>Our Mission</h3>
+                    <p>We aim to connect movie lovers with their next favorite film through smart recommendations, curated collections, and a seamless user experience.</p>
+                </div>
+                <div class="about-item">
+                    <h3>Our Vision</h3>
+                    <p>To become the go-to platform for cinephiles worldwide, offering personalized tools and a community-driven approach to movie discovery.</p>
+                </div>
+                <div class="about-item">
+                    <h3>Our Team</h3>
+                    <p>We’re a team of movie enthusiasts, developers, and designers working together to bring you the best movie platform possible.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>MovieVault</h3>
+                    <p>The ultimate platform for discovering, tracking, and enjoying movies like never before.</p>
+                    <div class="social-links">
+                        <a href="#">X</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">Facebook</a>
+                        <a href="#">YouTube</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="#home">Home</a>
+                    <a href="#features">Features</a>
+                    <a href="#trending">Trending</a>
+                    <a href="#about">About</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <a href="#">Blog</a>
+                    <a href="#">Help Center</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Press Kit</a>
+                    <a href="#">Careers</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Stay Updated</h3>
+                    <p>Subscribe to our newsletter for the latest updates and features.</p>
+                    <div class="newsletter">
+                        <input type="email" placeholder="Your email" aria-label="Email for newsletter">
+                        <button>→</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 MovieVault. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

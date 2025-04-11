@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieVault - Genre Movies</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">MovieVault</div>
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="index.html#features">Features</a>
+            <a href="index.html#trending">Trending</a>
+            <a href="index.html#about">About</a>
+            <div class="language">
+                <span>🌐 EN</span>
+            </div>
+            <button class="join-btn">Join</button>
+        </nav>
+    </header>
+
+    <section class="genre-page">
+        <div class="container">
+            <h2 id="genreTitle">Movies</h2>
+            <div class="filter-bar">
+                <label for="startYear">From Year:</label>
+                <input type="number" id="startYear" min="1900" max="2025" placeholder="e.g., 2010">
+                <label for="endYear">To Year:</label>
+                <input type="number" id="endYear" min="1900" max="2025" placeholder="e.g., 2025">
+                <label for="languageFilter">Filter by Language:</label>
+                <select id="languageFilter">
+                    <option value="">All Languages</option>
+                    <option value="en">English</option>
+                    <option value="es">Spanish</option>
+                    <option value="fr">French</option>
+                    <option value="de">German</option>
+                    <option value="hi">Hindi</option>
+                    <option value="ja">Japanese</option>
+                </select>
+                <button id="filterBtn" class="explore-btn">Apply Filters</button>
+                <button id="clearFilterBtn" class="clear-btn">Clear Filters</button>
+            </div>
+            <div id="loading" class="loading">Loading movies...</div>
+            <div id="genreMovies" class="trending-grid"></div>
+            <div class="see-more-container">
+                <button id="seeMoreBtn" class="see-more-btn">See More</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <!-- Same footer content as before -->
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>MovieVault</h3>
+                    <p>The ultimate platform for discovering, tracking, and enjoying movies like never before.</p>
+                    <div class="social-links">
+                        <a href="#">X</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">Facebook</a>
+                        <a href="#">YouTube</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="index.html#home">Home</a>
+                    <a href="index.html#features">Features</a>
+                    <a href="index.html#trending">Trending</a>
+                    <a href="index.html#about">About</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <a href="#">Blog</a>
+                    <a href="#">Help Center</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Press Kit</a>
+                    <a href="#">Careers</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Stay Updated</h3>
+                    <p>Subscribe to our newsletter for the latest updates and features.</p>
+                    <div class="newsletter">
+                        <input type="email" placeholder="Your email" aria-label="Email for newsletter">
+                        <button>→</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 MovieVault. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="genre.js"></script>
+</body>
+</html>
