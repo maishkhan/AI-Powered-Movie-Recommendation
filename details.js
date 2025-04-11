@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <p><span>Duration:</span> ${movie.runtime} minutes</p>
                     <p><span>Genre:</span> ${movie.genres}</p>
                     <p><span>Language:</span> ${movie.language}</p>
-                    <p><span>Overview:</span> \${movie.overview}</p>
+                    <p><span>Overview:</span> ${movie.overview}</p>
                     <p class="trailer"><span>Trailer:</span> <a href="${movie.trailer_url}" target="_blank">${movie.trailer_url === "N/A" ? "Not Available" : "Watch on YouTube"}</a></p>
                     <p class="watch"><span>Watch On:</span> ${watchOptions}</p>
                 </div>
